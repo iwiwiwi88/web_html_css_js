@@ -2,11 +2,41 @@
 <html>
 	<head>
 		<title>Learning JS</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<style>
+		#circle {
+			width:200px;
+			height:200px;
+			border-radius:100px;
+			background-color:red;
+		}
+		</style>
 	</head>
 	<body>
+		<div id="circle"></div>
+		<hr>
 		
+		<input id="input1" type="text" value="test" />
+		<button id="button1">Change text below</button> 
+		<div id="div1">Change me to the text you choose</div>
 		<script type="text/javascript">
+			document.getElementById("circle").onclick=function() {
+				document.getElementById("circle").style.display="none";
+			}
 			
+			//var divId="div1";
+			
+			//document.getElementById(divId).onclick=function() {
+			//	document.getElementById(divId).style.display="none";
+			//}
+			
+			document.getElementById("button1").onclick=function() {
+				var newText=document.getElementById("input1").value;
+				document.getElementById("div1").innerHTML=newText;
+			}
 		</script>
 	</body>
 </html>
