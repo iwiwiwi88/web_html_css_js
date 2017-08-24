@@ -12,7 +12,46 @@
 	</head>
 	<body>
 		
+		<p>How are you doin'? (sad, happy)</p>
+		<input id="mood" type="text" value="sad" />
+		<button id="submitB">Submit</button>
+		<hr>
+		
+		<p>How many fingers?</p>
+		<input id="answer" />
+		<button id="guessB">Guess</button>
+		<div id="result">Result: </div>
+		
 		<script type="text/javascript">
+			// @@@@@@@@@@@ IF @@@@@@@@@@@
+			//var x=2
+			//if (x==1) {
+			//	alert("x is 1!");
+			//} else {
+			//	alert("x is not 1!");
+			//}
+			document.getElementById("submitB").onclick=function() {
+				if (document.getElementById("mood").value=="sad") {
+					alert("Cheer UP!!! Tomorrow will be even worse!!! :D");
+				} else {
+					alert("I hate you!");
+				}
+			}
+
+			// @@@@@@@@@@@ IF - How many fingers game @@@@@@@@@@@
+			var x=Math.random();
+			x=6*x;
+			x=Math.floor(x);
+			document.getElementById("guessB").onclick=function() {
+				if (document.getElementById("answer").value<x) {
+					document.getElementById("result").innerHTML="Result: Too few";
+				} else if (document.getElementById("answer").value>x) {
+					document.getElementById("result").innerHTML="Result: Too many";
+				} else {
+					document.getElementById("result").innerHTML="Result: You win!!!";
+					document.getElementById("guessB").disabled=true;
+				}
+			}
 			
 		</script>
 	</body>
