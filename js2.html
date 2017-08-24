@@ -22,6 +22,12 @@
 		<input id="input1" type="text" value="test" />
 		<button id="button1">Change text below</button> 
 		<div id="div1">Change me to the text you choose</div>
+		<hr>
+		
+		<button id="button2">Go back to childhood</button> 
+		<button id="button3">Be grownup</button> 
+		<div id="div2">cat</div>
+		
 		<script type="text/javascript">
 			document.getElementById("circle").onclick=function() {
 				document.getElementById("circle").style.display="none";
@@ -36,6 +42,22 @@
 			document.getElementById("button1").onclick=function() {
 				var newText=document.getElementById("input1").value;
 				document.getElementById("div1").innerHTML=newText;
+			}
+			
+			var myArray=new Array();
+			myArray[0]="cat";
+			myArray[1]="kitty";
+			
+			happySadArray=["happy","sad"];
+			happySadArray.push("moodswings");
+			happySadArray.splice(1,0, "deadly serious");
+			console.log(happySadArray.length);
+			
+			document.getElementById("button2").onclick=function() {
+				document.getElementById("div2").innerHTML=myArray[1];
+			}
+			document.getElementById("button3").onclick=function() {
+				document.getElementById("div2").innerHTML=myArray[0];
 			}
 		</script>
 	</body>
