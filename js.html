@@ -1,32 +1,37 @@
 <!doctype html>
 <html>
-<head>
-<title>Learning JS</title>
-</head>
-<body>
-<button onclick="alert('Hi')">Click Me!</button>
-<p id=text>Some text</p>
-<button id="myButton">Choose Me!</button>
-<button id="textChanged">Change text</button>
-<button id="textAppender">Append text</button>
-<div id="div1">Some text in div</div>
-<div id="div2">Iwiwiwi is...</div>
+	<head>
+		<title>Learning JS</title>
+	</head>
+	<body>
+		<button onclick="alert('Hi')">Click Me!</button>
 
-<script type="text/javascript">
-document.getElementById("myButton").onclick=function() {
- alert("Hi!");
- }
- 
- document.getElementById("textChanged").onclick=function() {
- document.getElementById("div1").innerHTML="New text here"
- }
- 
- document.getElementById("textAppender").onclick=function() {
- document.getElementById("div1").innerHTML="New text here"
- }
-// alert("On page load");
-//document.getElementById("text").innerHTML="changed text";
+		<p id=text>Some text</p>
+		<button id="myButton">Choose Me!</button>
 
-</script>
-</body>
+		<hr>
+		<button id="textChanged">Change text</button>
+		<div id="div1">Some text in div</div>
+
+		<hr>
+		<button id="textAppender">Append text</button>
+		<div id="div2">Iwiwiwi is...</div>
+
+		<script type="text/javascript">
+			// alert("On page load");
+			//document.getElementById("text").innerHTML="changed text";
+			document.getElementById("myButton").onclick=function() {
+				alert("Hi!");
+			}
+ 
+			document.getElementById("textChanged").onclick=function() {
+				document.getElementById("div1").innerHTML="New text here"
+			}
+ 
+			document.getElementById("textAppender").onclick=function() {
+				document.getElementById("div2").innerHTML= document.getElementById("div2").innerHTML+" FANTASTIC!!!"
+			}
+
+		</script>
+	</body>
 </html>
