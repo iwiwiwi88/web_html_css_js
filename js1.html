@@ -16,6 +16,10 @@
 		<hr>
 		<button id="textAppender">Append text</button>
 		<div id="div2">Iwiwiwi is...</div>
+		
+		<hr>
+		<button id="textCreator">Create text</button>
+		<div id="div3"></div>
 
 		<script type="text/javascript">
 			// alert("On page load");
@@ -25,13 +29,16 @@
 			}
  
 			document.getElementById("textChanged").onclick=function() {
-				document.getElementById("div1").innerHTML="New text here"
+				document.getElementById("div1").innerHTML="New text here";
 			}
  
 			document.getElementById("textAppender").onclick=function() {
-				document.getElementById("div2").innerHTML= document.getElementById("div2").innerHTML+" FANTASTIC!!!"
+				document.getElementById("div2").innerHTML= document.getElementById("div2").innerHTML+" FANTASTIC!!!";
 			}
 
+			document.getElementById("textCreator").onclick=function() {
+				document.getElementById("div3").innerHTML="<url><li>Cat</li><li>Dog</li></ul>";
+			}
 		</script>
 	</body>
 </html>
