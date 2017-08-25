@@ -20,12 +20,25 @@
 	</head>
 	<body>
 		<div id="box"></div>
-		<div id="done">Done</div>
+		<div id="done">
+		<h1>RESULTS</h1>
+			<table>
+				<tr>
+					<td>Your reaction times</td><td>The best reaction time</td><td>The worst reaction time</td>
+				</tr>
+				<tr>
+					<td id="allTimes"></td><td id="theBestTime"></td><td id="theWorstTime"></td>
+				</tr>
+			</table>
+		</div>
 		
 		<script type="text/javascript">
-			var x=3;
+			var creationTime; var clickedTime; var reactionTime;
+			var x=0;
+			var reactions=new Array();
 		
 			function makeBox() {
+				creationTime=Date.now();
 				var time=Math.random();
 				time*=5000;
 				time=Math.floor(time);
@@ -46,17 +59,39 @@
 				
 			}
 			function isItTheEnd() {
-				x--;
-				if (x==0) {
-					return(true);
+				x++;
+				if (x==3) {
+					return true;
 				}
-				return(false);
+				return false;
+			}
+			function displayAllTimes() {
+				var txt="";
+				for(var i=0; i<reactions.length; i++) {
+					txt+=reactions[i].toString()+"<br>";
+				}
+				return txt;
+			}
+			function displayTheBestTime() {
+				return Math.min.apply(null, reactions).toString();
+			}
+			function displayTheWorstTime() {
+				return Math.max.apply(null, reactions).toString();
+			}
+			function displayReactionTimes() {
+				document.getElementById("allTimes").innerHTML=displayAllTimes();
+				document.getElementById("theBestTime").innerHTML=displayTheBestTime();
+				document.getElementById("theWorstTime").innerHTML=displayTheWorstTime();
+				document.getElementById("done").style.display="block";
 			}
 			
 			document.getElementById("box").onclick=function() {
+				clickedTime=Date.now();
+				reactionTime=clickedTime-creationTime;
+				reactions.push(reactionTime);
 				vanish();
 				if (isItTheEnd()) {
-					document.getElementById("done").style.display="block";
+					displayReactionTimes();
 				} else {
 					changeCoords();
 					changeShape();
