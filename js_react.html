@@ -11,6 +11,7 @@
 				width:200px;
 				height:200px;
 				background-color:red;
+				display:none;
 			}
 		</style>
 	</head>
@@ -18,8 +19,35 @@
 		<div id="box"></div>
 		
 		<script type="text/javascript">
+			function makeBox() {
+				var time=Math.random();
+				time*=5000;
+				time=Math.floor(time);
+				setTimeout(function() {
+					appear();
+				}, time);
+			}
+			function vanish() {
+				document.getElementById("box").style.display="none";
+			}
+			function appear() {
+				document.getElementById("box").style.display="block";
+			}
+			function changeCoords() {
+				
+			}
+			funciton changeShape() {
+				
+			}
 			
+			document.getElementById("box").onclick=function() {
+				vanish();
+				changeCoords();
+				changeShape();
+				makeBox();
+			}
 			
+			makeBox();
 		</script>
 	</body>
 </html>
