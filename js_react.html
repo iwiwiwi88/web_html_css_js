@@ -13,12 +13,18 @@
 				background-color:red;
 				display:none;
 			}
+			#done {
+				display:none;
+			}
 		</style>
 	</head>
 	<body>
 		<div id="box"></div>
+		<div id="done">Done</div>
 		
 		<script type="text/javascript">
+			var x=3;
+		
 			function makeBox() {
 				var time=Math.random();
 				time*=5000;
@@ -39,12 +45,23 @@
 			function changeShape() {
 				
 			}
+			function isItTheEnd() {
+				x--;
+				if (x==0) {
+					return(true);
+				}
+				return(false);
+			}
 			
 			document.getElementById("box").onclick=function() {
 				vanish();
-				changeCoords();
-				changeShape();
-				makeBox();
+				if (isItTheEnd()) {
+					document.getElementById("done").style.display="block";
+				} else {
+					changeCoords();
+					changeShape();
+					makeBox();
+				}
 			}
 			
 			makeBox();
