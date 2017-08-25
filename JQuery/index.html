@@ -6,10 +6,35 @@
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<script type="text/javascript" src="jquery.min.js"></script>
+		
+		<style>
+			#circle {
+				width:100px;
+				height:100px;
+				background-color:orange;
+				border-radius:100px;
+			}
+			.square {
+				width:100px;
+				height:100px;
+				background-color:red;
+				margin-top:10px;
+			}
+		</style>
 	</head>
 	<body>
-		<div id="jq"></div><hr>
+		<div id="jq"></div>
+		<hr>
 		
+		<div id="resShape"></div>
+		<p>Waiting for click on any shape</p>
+		<div id="circle"></div>
+		<div class="square"></div>
+		<div class="square"></div>
+		<hr>
+		
+		<div id="ifrRes"></div>
+		<iframe id="ifr" src="http://www.iwiwiwi.pl"></iframe>
 		
 		<script>
 			if (typeof jQuery != "undefined") {
@@ -17,6 +42,21 @@
 			} else {
 				document.getElementById("jq").innerHTML="JQuery undefined";
 			}
+			
+			$("#circle").click(function() {
+				document.getElementById("resShape").innerHTML="Circle clicked";
+			});
+			$(".square").click(function() {
+				document.getElementById("resShape").innerHTML="Square clicked";
+			});
+			$("div").click(function() {
+				$("p").html("Shape clicked");
+			});
+			
+			$("#ifr").hover(function() {
+				$("#ifrRes").html($("iframe").attr("src"));
+				//$("iframe").attr("src","https://www.google.com/doodles");
+			});
 		</script>
 	</body>
 </html>
