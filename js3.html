@@ -21,6 +21,17 @@
 		<input id="answer" />
 		<button id="guessB">Guess</button>
 		<div id="result">Result: </div>
+		<hr>
+		
+		<div id="forResult"></div>
+		<div id="forDrinks"></div>
+		<div id="whileDrinks"></div>
+		<hr>
+		
+		<input id="a" value="6" />
+		<input id="b" value="4" />
+		<button id="addB">Add</button>
+		<div id="addR"></div>
 		
 		<script type="text/javascript">
 			// @@@@@@@@@@@ IF @@@@@@@@@@@
@@ -53,6 +64,39 @@
 				}
 			}
 			
+			// @@@@@@@@@@@ FOR @@@@@@@@@@@
+			var x=0;
+			for (var i=1; i<=5; i++) {
+				x+=i;
+			}
+			document.getElementById("forResult").innerHTML="Result: "+x.toString();
+			
+			var drinksArray=["tea","cappuccino","pepsi"];
+			var drinks="For/Drinks: ";
+			for (var i=drinksArray.length-1; i>=0; i--) {
+				drinks+=drinksArray[i]+" ";
+			}
+			document.getElementById("forDrinks").innerHTML=drinks;
+			
+			// @@@@@@@@@@@ WHILE @@@@@@@@@@@
+			var wDrinks="";
+			var k=0;
+			while(k<drinksArray.length) {
+				wDrinks+=drinksArray[k]+" ";
+				k++;
+			}
+			document.getElementById("whileDrinks").innerHTML="While/Drinks: "+wDrinks;
+			
+			// @@@@@@@@@@@ FUNCTION @@@@@@@@@@@
+			function adding(a, b) {
+				return(a+b);
+			}
+			document.getElementById("addB").onclick=function() {
+				var x=document.getElementById("a").value;
+				var y=document.getElementById("b").value;
+				var xyz=adding(parseInt(x), parseInt(y));
+				document.getElementById("addR").innerHTML="Result: "+xyz.toString();
+			}
 		</script>
 	</body>
 </html>
