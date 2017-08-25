@@ -38,12 +38,12 @@
 			var reactions=new Array();
 		
 			function makeBox() {
-				creationTime=Date.now();
 				var time=Math.random();
 				time*=5000;
 				time=Math.floor(time);
 				setTimeout(function() {
 					appear();
+					creationTime=Date.now();
 				}, time);
 			}
 			function vanish() {
@@ -88,7 +88,7 @@
 			document.getElementById("box").onclick=function() {
 				clickedTime=Date.now();
 				reactionTime=clickedTime-creationTime;
-				reactions.push(reactionTime);
+				reactions.push(reactionTime/1000);
 				vanish();
 				if (isItTheEnd()) {
 					displayReactionTimes();
