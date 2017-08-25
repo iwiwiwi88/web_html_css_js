@@ -1,0 +1,16 @@
+body {
+	font-family:Verdana, Geneva, sans-serif;
+}
+table {
+	background-color:#ccffe6;
+}
+#box {
+	width:100px;
+	height:100px;
+	background-color:red;
+	display:none;
+	position:relative;
+}
+#done {
+	display:none;
+}

@@ -6,24 +6,18 @@
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
-		<style>
-			#box {
-				width:100px;
-				height:100px;
-				background-color:red;
-				display:none;
-				position:relative;
-			}
-			#done {
-				display:none;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="js_react_css.css">
 	</head>
 	<body>
+		<div>
+			<h1>TEST YOUR REACTION TIME!</h1>
+			<p>Click on the boxes and circles as quickly as you can!</p>
+		</div>
 		<div id="box"></div>
 		<div id="done">
-			<h1>RESULTS</h1>
+			
 			<table>
+				<th>RESULTS</th>
 				<tr>
 					<td>Your reaction times</td><td>The best reaction time</td><td>The worst reaction time</td>
 				</tr>
@@ -33,93 +27,6 @@
 			</table>
 		</div>
 		
-		<script type="text/javascript">
-			var creationTime; var clickedTime; var reactionTime;
-			var x=0;
-			var reactions=new Array();
-		
-			function getRandomColor() {
-				var letters = '0123456789ABCDEF';
-				var color = '#';
-				for (var i = 0; i < 6; i++) {
-					color += letters[Math.floor(Math.random() * 16)];
-				}
-				return color;
-			}
-			function makeBox() {
-				var time=Math.random();
-				time*=5000;
-				time=Math.floor(time);
-				setTimeout(function() {
-					appear();
-					creationTime=Date.now();
-				}, time);
-			}
-			function vanish() {
-				document.getElementById("box").style.display="none";
-			}
-			function appear() {
-				document.getElementById("box").style.backgroundColor=getRandomColor();
-				changeShape();
-				changeCoords();
-				document.getElementById("box").style.display="block";
-			}
-			function getXY(m) {
-				var x=Math.random();
-				x*=m;
-				return x;
-			}
-			function changeCoords() {
-				document.getElementById("box").style.top=getXY(300)+"px";
-				document.getElementById("box").style.left=getXY(500)+"px";
-			}
-			function changeShape() {
-				if (Math.random()>0.5) {
-					document.getElementById("box").style.borderRadius="100px";
-				} else {
-					document.getElementById("box").style.borderRadius="0px";
-				}
-			}
-			function isItTheEnd() {
-				x++;
-				if (x==3) {
-					return true;
-				}
-				return false;
-			}
-			function displayAllTimes() {
-				var txt="";
-				for(var i=0; i<reactions.length; i++) {
-					txt+=reactions[i].toString()+"<br>";
-				}
-				return txt;
-			}
-			function displayTheBestTime() {
-				return Math.min.apply(null, reactions).toString();
-			}
-			function displayTheWorstTime() {
-				return Math.max.apply(null, reactions).toString();
-			}
-			function displayReactionTimes() {
-				document.getElementById("allTimes").innerHTML=displayAllTimes();
-				document.getElementById("theBestTime").innerHTML=displayTheBestTime();
-				document.getElementById("theWorstTime").innerHTML=displayTheWorstTime();
-				document.getElementById("done").style.display="block";
-			}
-			
-			document.getElementById("box").onclick=function() {
-				clickedTime=Date.now();
-				reactionTime=clickedTime-creationTime;
-				reactions.push(reactionTime/1000);
-				vanish();
-				if (isItTheEnd()) {
-					displayReactionTimes();
-				} else {
-					makeBox();
-				}
-			}
-			
-			makeBox();
-		</script>
+		<script type="text/javascript" src="js_react_scripts.js"></script>
 	</body>
 </html>
