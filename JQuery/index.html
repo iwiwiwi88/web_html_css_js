@@ -5,8 +5,18 @@
 		<meta charset="utf-8" />
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script type="text/javascript" src="jquery.min.js"></script>
 	</head>
 	<body>
-
+		<div id="jq"></div><hr>
+		
+		
+		<script>
+			if (typeof jQuery != "undefined") {
+				document.getElementById("jq").innerHTML="JQuery defined";
+			} else {
+				document.getElementById("jq").innerHTML="JQuery undefined";
+			}
+		</script>
 	</body>
 </html>
