@@ -7,6 +7,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<script type="text/javascript" src="jquery.min.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/
+1.11.3/themes/smoothness/jquery-ui.css" />
 		
 		<style>
 		#wrapper {
@@ -38,6 +40,26 @@
 			color:red;
 			margin:20px;
 		}
+		#dragMe {
+			width:100px;
+			height:100px;
+			background-color:grey;
+		}
+		#resizeMe {
+			width:100px;
+			height:100px;
+			background-color:red;
+		}
+		#aim {
+			width:150px;
+			height:150px;
+			background-color:grey;
+		}
+		#target {
+			height:200px;
+			width:200px;
+			background-color:yellow;
+		}
 		</style>
 	</head>
 	<body>
@@ -62,13 +84,66 @@
 		</div>
 		<hr> 
 		
+		<div id="dragMe">Drag Me around!</div>
+		<div id="resizeMe">Resize Me!</div>
+		<hr>
 		
+		<div id="aim">Drop Me on yellow target!</div>
+		<div id="target"></div>
+		<hr>
 		
+		<div id="accordion">
+		<h3>Title</h3>
+		<div>
+			<p>Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! </p>
+		</div>
+		<h3>Title</h3>
+		<div>
+			<p>Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! </p>
+		</div>
+		<h3>Title</h3>
+		<div>
+			<p>Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! </p>
+		</div>
+		<h3>Title</h3>
+		<div>
+			<p>Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! </p>
+		</div>
+		<h3>Title</h3>
+		<div>
+			<p>Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! </p>
+		</div>
+		<h3>Title</h3>
+		<div>
+			<p>Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! </p>
+		</div>
+		<h3>Title</h3>
+		<div>
+			<p>Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! </p>
+		</div>
+		<h3>Title</h3>
+		<div>
+			<p>Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! </p>
+		</div>
+		<h3>Title</h3>
+		<div>
+			<p>Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! Kotki są super! </p>
+		</div>
+		</div>
+		<hr>
+		
+		<div>Drag elements up and down</div>
+		<ul>
+			<li>Pizza</li>
+			<li>Cheese</li>
+			<li>Tomatoes</li>
+			<li>Chocolate</li>
+		</ul>
 		<script>
+		// @@@@@@@@@@@@@@@@@ REGEX @@@@@@@@@@@@@@@@@@@
 		var regex=/kotki/;
 		var regex1=/Kotki/i;
 		var regex2=/a/g;
-		var regex3=/kotki/;
 		var string="Najfajniejsze są kotki!"
 		var result = string.match(regex);
 		var result1 = string.match(regex1);
@@ -101,6 +176,22 @@
 				$("#error").html(errorMsg);
 			}
 		});
+		
+		// @@@@@@@@@@@@@@@@@ JQUERY UI - DRAGGABLE, RESIZEABLE, DROPPABLE @@@@@@@@@@@@@@@@@@@
+		$("#dragMe").draggable();
+		$("#resizeMe").resizable();
+		
+		$("#aim").draggable();
+		$("#target").droppable({
+			drop: function(ui, event) {
+				$("#aim").html("Thank you :)");
+				$("#target").css("background-color","red");
+			}
+		});
+		
+		// @@@@@@@@@@@@@@@@@ JQUERY UI - ACCORDION, SORTABLE @@@@@@@@@@@@@@@@@@@
+		$("#accordion").accordion();
+		$("ul").sortable();
 		</script>
 	</body>
 </html>
