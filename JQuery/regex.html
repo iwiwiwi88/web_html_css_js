@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Learning JQuery</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script type="text/javascript" src="jquery.min.js"></script>
+		
+		<style>
+		</style>
+	</head>
+	<body>
+		<div id="result">Result of match:</div>
+		<div id="result1">Result of match:</div>
+		<div id="result2">Result of match:</div>
+		<hr>
+		
+		<div id="wrapper">
+		
+		</div>
+		<script>
+		var regex=/kotki/;
+		var regex1=/Kotki/i;
+		var regex2=/a/g;
+		var regex3=/kotki/;
+		var string="Najfajniejsze są kotki!"
+		var result = string.match(regex);
+		var result1 = string.match(regex1);
+		var result2 = string.match(regex2);
+		$("#result").append(" "+result);
+		$("#result1").append(" "+result1);
+		$("#result2").append(" "+result2);
+		
+		</script>
+	</body>
+</html>
