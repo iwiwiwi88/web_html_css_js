@@ -14,6 +14,12 @@
 				background-color:orange;
 				border-radius:100px;
 			}
+			#animCirc {
+				width:100px;
+				height:100px;
+				background-color:blue;
+				border-radius:100px;
+			}
 			.square {
 				width:100px;
 				height:100px;
@@ -27,7 +33,7 @@
 		<hr>
 		
 		<div id="resShape"></div>
-		<p>Waiting for click on any shape</p>
+		<p id="shapeClick">Waiting for click on any shape</p>
 		<div id="circle"></div>
 		<div class="square"></div>
 		<div class="square"></div>
@@ -35,27 +41,57 @@
 		
 		<div id="ifrRes"></div>
 		<iframe id="ifr" src="http://www.iwiwiwi.pl"></iframe>
+		<hr>
+		
+		<p id="vanishT">This text will fade out after doing some magic!</p>
+		<button id="vanishB">Do magic!</button>
+		<button id="appearB">Reverse magic!</button>
+		<div id="fadeStatus"></div>
+		<hr>
+		
+		<div id="animCirc"></div>
 		
 		<script>
 			if (typeof jQuery != "undefined") {
-				document.getElementById("jq").innerHTML="JQuery defined";
+				$("#jq").html("JQuery defined");
 			} else {
-				document.getElementById("jq").innerHTML="JQuery undefined";
+				$("#jq").html("JQuery undefined");
 			}
 			
 			$("#circle").click(function() {
-				document.getElementById("resShape").innerHTML="Circle clicked";
+				$("#resShape").html("Circle clicked");
+				$("#circle").html($("#circle").css("width", "400px"));
 			});
 			$(".square").click(function() {
-				document.getElementById("resShape").innerHTML="Square clicked";
+				$("#resShape").html("Square clicked");
+				
 			});
 			$("div").click(function() {
-				$("p").html("Shape clicked");
+				$("#shapeClick").html("Shape clicked");
+				//$(this).hide();
 			});
 			
 			$("#ifr").hover(function() {
 				$("#ifrRes").html($("iframe").attr("src"));
 				//$("iframe").attr("src","https://www.google.com/doodles");
+			});
+			
+			$("#vanishB").click(function() {
+				$("#vanishT").fadeOut("2000");
+			});
+			$("#appearB").click(function() {
+				$("#vanishT").fadeIn("slow", function() {
+					$("#fadeStatus").html("Magic's over!");
+				});
+				
+			});
+			
+			$("#animCirc").click(function() {
+				$(this).animate({width:"400px",
+								height:"50px",
+								backgroundColor:"green",
+								marginLeft:"100px"
+								},2000);
 			});
 		</script>
 	</body>
