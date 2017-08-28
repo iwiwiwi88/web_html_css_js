@@ -14,16 +14,29 @@
 		<div id="menuBar">
 			<p>CodePlayer</p>
 			<ul id="toggles">
-				<li>HTML</li>
-				<li>CSS</li>
-				<li>JS</li>
-				<li style="border:none">Result</li>
+				<li class="toggle selected">HTML</li>
+				<li class="toggle">CSS</li>
+				<li class="toggle">JS</li>
+				<li class="toggle selected" style="border:none">Result</li>
 			</ul>
 			<div id="buttonD"><button id="runB">Run</button></div>
 		</div>
 		<div class="clear"></div>
-		<div class="codeContainer" id="htmlContainer">
+		<div class="codeContainer" id="HTMLContainer">
+			<div class="codeLabel">HTML</div>
 			<textarea>Some text</textarea>
+		</div>
+		<div class="codeContainer" id="CSSContainer">
+			<div class="codeLabel">CSS</div>
+			<textarea>Some text</textarea>
+		</div>
+		<div class="codeContainer" id="JSContainer">
+			<div class="codeLabel">JS</div>
+			<textarea>Some text</textarea>
+		</div>
+		<div class="codeContainer" id="ResultContainer">
+			<div class="codeLabel">Result</div>
+			<iframe></iframe>
 		</div>
 	</div>
 	<script type="text/javascript" src="codePlayer.js"></script>

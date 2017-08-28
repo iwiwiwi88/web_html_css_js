@@ -13,6 +13,7 @@ body {
 	height:50px;
 	background-color:#e0e0e0;
 	border-bottom: 1px solid grey;
+	position:relative;
 }
 p {
 	margin:0;
@@ -49,7 +50,6 @@ p {
 	clear:both;
 }
 .codeContainer {
-	background-color:blue;
 	height:100%;
 	width:50%;
 	float:left;
@@ -63,4 +63,28 @@ p {
 	width:100%;
 	border:none;
 	border-right:1px solid grey;
+	font-family:monotype;
+	font-size:120%;
+	padding:5px;
+	box-sizing:border-box;
+}
+#CSSContainer, #JSContainer {
+	display:none;
+}
+.codeLabel {
+	position:absolute;
+	right:10px;
+	top:20px;
+	border:1px solid grey;
+	border-radius:5px;
+	padding:5px;
+}
+iframe {
+	height:100%;
+	position:relative;
+	left:20px;
+	border:none;
+}
+.selected {
+	background-color: grey;
 }
