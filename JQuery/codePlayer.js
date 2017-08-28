@@ -15,3 +15,8 @@ $(".toggle").click(function() {
 	var width=100/showingDivs;
 	$(".codeContainer").width(width+"%");
 });
+
+$("#runB").click(function() {
+	$("iframe").contents().find("html").html('<style>'+$("#cssCode").val()+'</style>'+$("#htmlCode").val());
+	document.getElementById("resultF").contentWindow.eval($("#jsCode").val());
+});

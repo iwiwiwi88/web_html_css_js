@@ -24,19 +24,19 @@
 		<div class="clear"></div>
 		<div class="codeContainer" id="HTMLContainer">
 			<div class="codeLabel">HTML</div>
-			<textarea>Some text</textarea>
+			<textarea id="htmlCode"><div id="test"></div></textarea>
 		</div>
 		<div class="codeContainer" id="CSSContainer">
 			<div class="codeLabel">CSS</div>
-			<textarea>Some text</textarea>
+			<textarea id="cssCode">html {background-color:red}</textarea>
 		</div>
 		<div class="codeContainer" id="JSContainer">
 			<div class="codeLabel">JS</div>
-			<textarea>Some text</textarea>
+			<textarea id="jsCode">document.getElementById("test").innerHTML="Kotki są fajne!";</textarea>
 		</div>
 		<div class="codeContainer" id="ResultContainer">
 			<div class="codeLabel">Result</div>
-			<iframe></iframe>
+			<iframe id="resultF"></iframe>
 		</div>
 	</div>
 	<script type="text/javascript" src="codePlayer.js"></script>
