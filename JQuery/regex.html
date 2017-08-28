@@ -6,8 +6,38 @@
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<script type="text/javascript" src="jquery.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
 		
 		<style>
+		#wrapper {
+			width:500px;
+			margin:0 auto;
+			font-family: helvetica;
+			font-size:1.2em;
+		}
+		input {
+			width:200px;
+			height:40px;
+			padding:5px;
+			border-radius:5px;
+			font-size:1.2em;
+			border: 1px solid grey;
+			margin-bottom:10px;
+		}
+		label {
+			width:150px;
+			float:left;
+			padding-top:5px;
+		}
+		#sub {
+			height:50px;
+			margin-left:200px;
+			width:100px;
+		}
+		#error {
+			color:red;
+			margin:20px;
+		}
 		</style>
 	</head>
 	<body>
@@ -17,8 +47,23 @@
 		<hr>
 		
 		<div id="wrapper">
-		
+		<div id="error"></div>
+		<form id="validationForm">
+			<label for="email">Email</label>
+			<input name="email" id="email" />
+			<label for="phone">Telephone</label>
+			<input name="phone" id="phone" />
+			<label for="pass">Password</label>
+			<input name="pass" type="password" id="pass1" />
+			<label for="confirme">Confirm Password</label>
+			<input name="confirme" type="password" id="pass2" />
+			<input id="sub" type="submit" value="Submit" />
+		</form>
 		</div>
+		<hr> 
+		
+		
+		
 		<script>
 		var regex=/kotki/;
 		var regex1=/Kotki/i;
@@ -32,6 +77,30 @@
 		$("#result1").append(" "+result1);
 		$("#result2").append(" "+result2);
 		
+		// @@@@@@@@@@@@@@@@@ FORM VALIDATION @@@@@@@@@@@@@@@@@@@
+		function isEmailOk(emailAddress) {
+			var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			return re.test(emailAddress);
+		};
+		$("#validationForm").submit(function(event) {
+			var errorMsg="";
+			event.preventDefault();
+			if (!isEmailOk($("#email").val())) {
+				//$("#error").html("Email address is not valid!!!");
+				errorMsg="Please enter a valid email address!";
+			} 
+			if (!$.isNumeric($("#phone").val())) {
+				errorMsg+="<br>Please enter a valid phone number (digits only)!";
+			}
+			if ($("#pass1").val()!=$("#pass2").val()) {
+				errorMsg+="<br>Password doesn't match!";
+			}
+			if (errorMsg=="") {
+				alert("Completed!");
+			} else {
+				$("#error").html(errorMsg);
+			}
+		});
 		</script>
 	</body>
 </html>
