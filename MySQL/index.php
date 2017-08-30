@@ -34,4 +34,30 @@
 	} else {
 		echo "It failed!";
 	}
+	
+	// @@@@@@@@@@@@@@@@@@@ SESSION VARIABLES @@@@@@@@@@@@@@@@@@
+	$temp = "Hello"; // if after run it is commented out, saved and site is refreshed, it won't exist
+	echo $temp;
+	
+	session_start();
+	$_SESSION['loginid']=1; // it can be commented after one run, and site will still show it
+	echo $_SESSION['loginid'];
+	print_r($_SESSION);
+	
+	// @@@@@@@@@@@@@@@@@@@ COOKIES @@@@@@@@@@@@@@@@@@
+	setcookie("id","1234",time()+60*60*24);
+	echo $_COOKIE['id'];
+	setcookie("id","",time()-3600);
+	
+	// @@@@@@@@@@@@@@@@@@@ PASSWORDS @@@@@@@@@@@@@@@@@@
+	/* PASSWORDS WAYS
+	1) plain text in DB - very bad idea
+	2) hashed passwords - easierones will be decrypted quickly
+			echo md5("password");
+	3) hashed passwords with salt - having few hashed passwords, we can compare these and find $salt
+			$salt = "jeje8378473*&*fdsfJKFJIS";
+			echo md5($salt."password");
+	4) hashed(hashed(rowId)+password) - everytime different pass, hard to compare these 
+			echo md5(md5($row['id'])."password");
+	*/
 ?>
