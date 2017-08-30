@@ -10,13 +10,13 @@
 				if (strlen($_POST['password'])<8) $error.="<br />Please enter a password with at least 8 characters.";
 				if (!preg_match('`[A-Z]`', $_POST['password'])) $error.="<br />Please include at least one capital letter in your password.";
 			}
-		if ($error) echo "There were errors. Errors: ".$error;
+		if ($error) $error = "There were errors. Errors: ".$error;
 		else {
 			$select = "select * from users where email='".mysqli_real_escape_string($link, $_POST['email'])."'";
 			$result = mysqli_query($link, $select);
 			$results = mysqli_num_rows($result);
 			
-			if ($results) echo "That email address is already registered. Do you want to log in?";
+			if ($results) $error = "That email address is already registered. Do you want to log in?";
 			else {
 				$query="insert into `users` (`email`, `password`) values ('".mysqli_real_escape_string($link, $_POST['email'])."', '".md5(md5($_POST['email']).$_POST['password'])."')";
 				$result = mysqli_query($link, $select);
@@ -35,7 +35,7 @@
 			$_SESSION['id']=$row['id'];
 			// Redirect to logged in page
 		} else {
-			echo "We couldn't find a user with these credentials in our database";
+			$error = "We couldn't find a user with these credentials in our database";
 		}
 	}
 ?>

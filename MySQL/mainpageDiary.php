@@ -1,4 +1,4 @@
-<? include("login.php"); ?>
+<? ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@
 	<div class="navbar navbar-default navbar-fixed-top">
 		<div class="cntainer">
 			<div class="navbar-header">
-				<a href="" class="navbar-brand">Sign In</a>
+				<a href="" class="navbar-brand">Secret Diary</a>
 		
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target=".navbar-collapse">
@@ -25,21 +25,9 @@
 				</button>
 			</div>
 			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#home">Home</a></li>
+				<ul class="navbar nav">
+					<li><a href="">Log Out</a></li>
 				</ul>
-				
-				<form class="navbar-form navbar-right" method="post"> 
-					<div class="form-group">
-						<input type="email" class="form-control" name="loginEmail" placeholder="Email" id="loginEmail" value="<?php echo addslashes($_POST['loginEmail']); ?>" />
-					</div>
-					<div class="form-group">
-						<input type="password" placeholder="Password" class="form-control" name="loginPassword" value="<?php echo addslashes($_POST['loginPassword']); ?>" />
-					</div>
-					<div class="form-group">
-						<input type="submit" value="Log In" class="btn btn-success" name="submit" />
-					</div>
-				</form>
 			</div>
 		</div>
 	</div>
