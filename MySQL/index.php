@@ -25,6 +25,7 @@
 	$queryRows = "select * from users";
 	$name1 = "Ian O'Neil";
 	$escape = "select * from users where name='".mysqli_real_escape_string($link, $name1)."'";
+	// mysqli_real_escape_string will also prevent us from SQL injection attack!!!
 	if (mysqli_query($link, $queryRows)) {
 		echo "It worked!";
 		echo mysqli_num_rows($result)."<br />";
