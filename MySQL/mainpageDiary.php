@@ -1,4 +1,11 @@
-<? ?>
+<? 
+	session_start();
+	inculde("connection.php");
+	$query="select diray from users where id='".$_SESSION['id']."' limit 1";
+	$result = mysqli_query($link, $query);
+	$row = mysqli_fetch_array($result);
+	$diray = $row['diary'];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,20 +20,12 @@
   <body data-spy="scroll" data-target=".navbar-collapse">
 	<div class="navbar navbar-default navbar-fixed-top">
 		<div class="cntainer">
-			<div class="navbar-header">
+			<div class="navbar-header pull-left">
 				<a href="" class="navbar-brand">Secret Diary</a>
-		
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
 			</div>
-			<div class="collapse navbar-collapse">
+			<div class="collapse navbar-collapse pull-right">
 				<ul class="navbar nav">
-					<li><a href="">Log Out</a></li>
+					<li><a href="diary.php?logout=1">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -34,29 +33,8 @@
 	<div id="home" class="container contentContainer" >
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3" id="topRow">
-				<h1>Secret Diary</h1>
-				<p class="lead">Kotki Kotki Kotki</p>
-				<p>Soft kitty, warm kitty, little ball of fur...</p>
-				<p class="bold marginTop">Interested? Join our mailing list!</p>
-				<?php
-					if ($error) {
-						echo '<div class="alert alert-danger">'.addslashes($error).'</div>';
-					}
-				?>
-				<form class="marginTop" method="post">
-					<div class="form-group">
-						<label for="email">Email Address</label>
-						<input type="email" name="email" id="email" placeholder="Your Email" value="<?php echo addslashes($_POST['email']); ?>" />
-					</div>
-					<div class="form-group">
-						<label for="password">Password</label>
-						<input type="password" name="password" placeholder="Password" value="<?php echo addslashes($_POST['password']); ?>" />
-					</div>
-					
-					<input type="submit" name="submit" value="Sign Up" class="btn btn-success btn-lg marginTop" />
-				</form>
+				<textarea class="form-control"><?php echo $diary; ?></textarea>
 			</div>
-			
 		</div>
 	</div>
 
@@ -65,6 +43,11 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script>
 		$(".contentContainer").css("min-height",$(window).height());
+		$(".textarea").css("height",$(window).height()-120);
+		$("textarea").keyup(function() {
+			// AJAX
+			$.post("updateDiary.php", {diary:$("textarea").val()});
+		});
 	</script>
 </body>
 </html>

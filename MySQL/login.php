@@ -1,5 +1,9 @@
 <?php 
 	session_start();
+	if ($_POST["logout"]==1 AND $_SESSION['id']) { 
+		session_destroy();
+		$message="You've been log out! Have a nice day!";
+	}
 	include("connection.php");
 	
 	if ($_POST['submit']=="Sign Up") {
@@ -23,6 +27,7 @@
 				echo "You've been signed up!";
 				$_SESSION['id']=mysqli_insert_id($link);
 				// Redirect to logged in page
+				header("Location:mainpage.php");
 			}
 		}
 	}
@@ -34,6 +39,7 @@
 		if ($row) {
 			$_SESSION['id']=$row['id'];
 			// Redirect to logged in page
+			header("Location:mainpage.php");
 		} else {
 			$error = "We couldn't find a user with these credentials in our database";
 		}

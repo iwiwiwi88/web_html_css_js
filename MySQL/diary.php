@@ -54,6 +54,9 @@
 					if ($error) {
 						echo '<div class="alert alert-danger">'.addslashes($error).'</div>';
 					}
+					if ($message) {
+						echo '<div class="alert alert-success">'.addslashes($message).'</div>';
+					}
 				?>
 				<form class="marginTop" method="post">
 					<div class="form-group">
