@@ -1,33 +1,65 @@
-<?php 
-session_start();
-	if ($_POST['submit']) {
-		if (!$_POST['email']) $error.="<br />Please enter your email";
-			else if !(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)) $error.="<br />Please enter a valid email";
-		if (!$_POST['password']) $error.="<br />Please enter your password";
-			else {
-				if (strlen($_POST['password'])<8) $error.="<br />Please enter a password with at least 8 characters.";
-				if (!preg_match('`[A-Z]`', $_POST['password'])) $error.="<br />Please include at least one capital letter in your password.";
-			}
-		if ($error) echo "There were errors. Errors: ".$error;
-		else {
-			$link = mysql_connect("localhost","user", "pass", "diary");
-			$select = "select * from users where email='".mysqli_real_escape_string($link, $_POST['email'])."'";
-			$result = mysqli_query($link, $select);
-			$results = mysqli_num_rows($result);
-			
-			if ($results) echo "That email address is already registered. Do you want to log in?";
-			else {
-				$query="insert into `users` (`email`, `password`) values ('".mysqli_real_escape_string($link, $_POST['email'])."', 'md5(md5($_POST['email']).$_POST['password'])')";
-				$result = mysqli_query($link, $select);
-				echo "You've been signed up!";
-				$_SESSION['id']=mysqli_insert_id($link);
-			}
-		}
-	}
-?>
+<? include("login.php"); ?>
 
-<form method="post">
-	<input type="email" name="email" id="email" />
-	<input type="password" name="password"  />
-	<input type="submit" name="submit" value="Sign Up" />
-</form>
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initialscale=1">
+ <title>MySQL exercise</title>
+ <link href="css/bootstrap.min.css" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="page.css">
+ </head>
+  <body data-spy="scroll" data-target=".navbar-collapse">
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="cntainer">
+			<div class="navbar-header">
+				<a href="" class="navbar-brand">Secret Diary</a>
+		
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div id="home" class="container contentContainer" >
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3" id="topRow">
+				<h1>Secret Diary</h1>
+				<p class="lead">Kotki Kotki Kotki</p>
+				<p>Soft kitty, warm kitty, little ball of fur...</p>
+				<p class="bold marginTop">Interested? Join our mailing list!</p>
+				<form class="marginTop" method="post">
+					<div class="form-group">
+						<label for="email">Email Address</label>
+						<input type="email" name="email" id="email" placeholder="Your Email" value="<?php echo addslashes($_POST['email']); ?>" />
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input type="password" name="password" placeholder="Password" value="<?php echo addslashes($_POST['password']); ?>" />
+					</div>
+					
+					<input type="submit" name="submit" value="Sign Up" class="btn btn-success btn-lg marginTop" />
+				</form>
+				<form method="post">
+					<input type="email" name="loginEmail" id="loginEmail" value="<?php echo addslashes($_POST['loginEmail']); ?>" />
+					<input type="password" name="loginPassword" value="<?php echo addslashes($_POST['loginPassword']); ?>" />
+					<input type="submit" name="submit" value="Log In" />
+				</form>
+			</div>
+			
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/
+	jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		$(".contentContainer").css("min-height",$(window).height());
+	</script>
+</body>
+</html>
