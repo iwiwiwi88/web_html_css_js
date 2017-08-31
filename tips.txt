@@ -19,7 +19,10 @@ $("$content").vclick(function() {  // vclick better for mobile dvices
 });
 
 
-####################  ####################
+#################### Paint ####################
+sketch.js
+<canvas> element
+href="" - will refresh the page ???
 
 ####################  ####################
 
