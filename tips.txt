@@ -1,11 +1,23 @@
 Some additional notes
 
 #################### MOBILE ####################
-$("$content").vclick(...); - better for mobile dvices
-
+HOME href="#home"
 Part1 href="#1-1"
 Part2 href="#1-2"
-var newClass= $(this).attr("href").substring(1); // we want to get rid of #
+
+in <script>
+function updateContent(hash) {
+	var newClass= hash.substring(1); // we want to get rid of #
+	var newContent = $("."+newClass).html();
+	$("#content").html(newContent); // no all page wil be reloaded
+}
+if (window.location.hash) {
+	updateContent(window.location.hash);
+}
+$("$content").vclick(function() {  // vclick better for mobile dvices
+	updateContent($(this).attr("href"));
+});
+
 
 ####################  ####################
 
