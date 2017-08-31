@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+	<head>
+		<title>APIs examples</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<script type="text/javascript" src="jquery.min.js"></script>
+	</head>
+	<body>
+	<script>
+		$.ajax({
+			type: "GET",
+			url: "url to some api with KEY and other options",
+			dataType: "xml",
+			success: processXML
+		});
+		
+		function processXML(xml) {
+			alert(xml); // will show only that it is a xml object
+			alert($(xml).find("status").text()); // will show content of <status> tag
+			alert($(xml).find("cat").each(function() { 
+				// alert($(this).text()); // will alert one by one contents of tags <cat>
+				if ($(this).find("favFood").text()=="pork") { // 
+					alert($(this).find("catName").text());
+				}
+			}));
+		}
+	</script>
+	</body>
+</html>
