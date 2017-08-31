@@ -63,22 +63,41 @@
 						<button id="postcode" class="btn btn-success btn-lg">Find My Postcode</button>
 					</form>
 					<div id="success" class="alert alert-success">Success!</div>
-					<div id="noCity" class="alert alert-success">Please enter an address!</div>
+					<div id="noAddress" class="alert alert-success">Please enter an address!</div>
 					<div id="fail" class="alert alert-danger">Could not find postcode for this address. Check spelling and try again.</div>
+					<div id="fail2" class="alert alert-danger">Could not connect to server!</div>
 				</div>
 			</div>
 		</div>
 		<script>
 			$("#postcode").click(function(event) {
+				event.preventDefault();
+				var result = 0;
+				$(".alert").fadeOut();
 				$.ajax({
 					type: "GET",
-					url: "url to postcode api with KEY and other options",
+					url: "url to postcode api with KEY and other options and variable with address".encodeURIComponent($('#address').val()),
 					dataType: "xml",
-					success: processXML
+					success: processXML,
+					error: error
 				});
-		
+				function error() {
+					$("#fail20").fadeIn();
+				}
 				function processXML(xml) {
-					
+					$(xml).find("address_component").each(function() {
+						if ($(this).find("type").text()=="postal_code") {
+							$("#success").html("The postcode you need is: "+$(this).find("long_name").text()).fadeIn();
+							result=1;
+						}
+					});
+				};
+				if ($result==0) {
+					if ($("#address").val()=="") {
+						$("#noAddress").fadeIn();
+					} else {
+						$("#fail").fadeIn();
+					}
 				}
 			};
 		</script>
