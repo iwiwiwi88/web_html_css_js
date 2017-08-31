@@ -16,6 +16,8 @@
 		echo $tweet->text;
 		echo $tweet->favourite_count;
 		echo "<br />";
+		
+		// oembed - nice printable tweets using id
 	}
 	
 	// @@@@@@@@@@@@@@ POST with POST Data @@@@@@@@@@@@@@@
