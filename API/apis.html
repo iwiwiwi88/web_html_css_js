@@ -22,7 +22,7 @@
 			alert($(xml).find("status").text()); // will show content of <status> tag
 			alert($(xml).find("cat").each(function() { 
 				// alert($(this).text()); // will alert one by one contents of tags <cat>
-				if ($(this).find("favFood").text()=="pork") { // 
+				if ($(this).find("favFood").text()=="pork") { // will show only catNames of cats that like pork
 					alert($(this).find("catName").text());
 				}
 			}));
