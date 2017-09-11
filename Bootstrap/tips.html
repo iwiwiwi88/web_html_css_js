@@ -51,11 +51,31 @@
 		</ul>
 	</nav>
 	<br /><hr /><br />
+	<button class="btn btn-primary" type="button" data-toggle="tooltip" data-placement="top" title="Top Toooltip">hover for top</button>
+	<button class="btn btn-primary" type="button" data-toggle="tooltip" data-placement="bottom" title="Bottom Toooltip">hover for bottom</button>
+	<button class="btn btn-primary" type="button" data-toggle="tooltip" data-placement="left" title="Left Toooltip">hover for left</button>
+	<button class="btn btn-primary" type="button" data-toggle="tooltip" data-placement="right" title="Right Toooltip">hover for right</button>
+	<br /><hr /><br />
+	<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Top">Top popover</button>
+	<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="left" data-trigger="focus" data-content="Left">Top popover</button>
+	<br /><hr /><br />
   </div>
   </div>
   </div>
 	<!-- jQuery first, then Bootstrap JS. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="tether.js"></script>
     <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+	<script>
+		$( function(){
+			$("[data-toggle='tooltip']").tooltip();
+		});
+		$( function(){
+			$("[data-toggle='popover']").popover();
+		});
+		$(".popover-dismiss").popover({
+			trigger: "focus"
+		});
+	</script>
 </body>
 </html>
